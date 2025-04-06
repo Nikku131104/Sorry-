@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorry PM Sahiba</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #ffe6e6, #ffcccc);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #d10000;
+      text-shadow: 2px 2px #fff;
+    }
+
+    p {
+      font-size: 1.5em;
+      color: #333;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .roast {
+      font-size: 1.2em;
+      margin-top: 40px;
+      color: #555;
+      font-style: italic;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: #d10000;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    #response {
+      margin-top: 30px;
+      font-size: 1.5em;
+      color: #d10000;
+      display: none;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: float 5s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Prime Minister Sahiba!</h1>
+  <p>Sorry nhi tula, <strong>teri shaadi karwane pe khush ab</strong></p>
+  <button onclick="showResponse()">Kya tu khush hai?</button>
+  <div id="response">Acha hai... lekin yaad rakh —</div>
+  <div class="roast">But m tujhe roast to karunga phir bhi.</div>
+
+  <script>
+    function showResponse() {
+      document.getElementById('response').style.display = 'block';
+    }
+
+    // Floating hearts
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
